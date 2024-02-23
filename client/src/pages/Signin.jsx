@@ -7,6 +7,7 @@ import logo from "../assets/images/logo/newlogo.png";
 import AboutUs from '../home/AboutUs';
 import { useDispatch, useSelector } from 'react-redux';
 import { signInStart, signInSuccess, siginInFailure } from '../redux/user/userSlice';
+import OAuth from '../components/OAuth';
 
 
 export default function SignIn() {
@@ -93,7 +94,7 @@ export default function SignIn() {
                 'Sign In'
               )}
             </Button>
-            {/* <OAuth /> */}
+            <OAuth />
           </form>
           <div className='flex gap-2 text-sm mt-3'>
             <span>Dont Have an account?</span>

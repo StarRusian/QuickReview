@@ -43,9 +43,9 @@ export default function SignUp() {
   };
   return (
     
-    <div className='min-h-screen mt-2 items-center justify-center '>
+    <div className='min-h-screen mt-4 items-center justify-center '>
       {/* <NavItems /> */}
-      <div className='flex p-3 max-w-3xl mx-auto flex-col md:flex-row md:items-center gap-5'>
+      <div className='flex p-2 max-w-3xl mx-auto flex-col md:flex-row md:items-center gap-5'>
         {/* left */}
         <div className='flex-1'>
         
@@ -101,7 +101,7 @@ export default function SignUp() {
             </Button>
             {/* <OAuth /> */}
           </form>
-          <div className='flex gap-2 text-sm mt-5'>
+          <div className='flex gap-2 text-sm mt-3'>
             <span>Have an account?</span>
             <Link to='/signin' className='text-blue-500'>
               Sign In

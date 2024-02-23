@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react'
 import { Link } from 'react-router-dom';
 import logo from "../assets/images/logo/newlogo.png"
+import { Button } from 'flowbite-react';
 
 
 const NavItems = () => {
@@ -27,14 +28,14 @@ const NavItems = () => {
     return (
         <header className={`header-section style-3 ${headerFixed ? "header-fixed fadeInUp" : ""}`}>
             {/* header top start */}
-            {/* <div className={`header-top d-md-none ${socialToggle ? "open" : ""}`}>
+            <div className={`header-top d-md-none ${socialToggle ? "open" : ""}`}>
                 <div className='container'>
                     <div className='header-top-area'>
                         <Link to="/signup" className='lab-btn me-3'><span>Create Account</span></Link>
                         <Link to="/login"><span>Log In</span></Link>
                     </div>
                 </div>
-            </div> */}
+            </div>
 
             {/* header bottom */}
             <div className='header-bottom'>
@@ -61,11 +62,14 @@ const NavItems = () => {
                                 </ul>
                             </div>
                             {/* sign in and log in */}
-                            <Link to="/sign-up" className=' me-3 d-none d-md-block'>
-                            {/* <Button gradientDuoTone='purpleToBlue'>Sign Up</Button> */}
-                            </Link>
-                            <Link to="/login">
-                                {/* <Button gradientDuoTone='purpleToBlue'>Sign In</Button> */}
+
+                            <Link to="/sign-up" className='lab-btn me-3 d-none d-md-block'>Create Account</Link>
+                            
+
+                            
+                            
+                            <Link to="/signin">
+                                <Button gradientDuoTone='purpleToBlue'>Sign In</Button>
                             </Link>
 
                             {/* menu toggler */}

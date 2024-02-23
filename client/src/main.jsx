@@ -20,6 +20,8 @@ import Home from "./home/Home.jsx";
 import Shop from "./shop/Shop.jsx";
 import SingleProduct from "./shop/SingleProduct.jsx";
 import About from "./about/About.jsx";
+import Signup from "./pages/Signup.jsx";
+import Signin from "./pages/Signin.jsx";
 // import AuthProvider from "./contexts/AuthProvider.jsx";
 
 
@@ -44,6 +46,14 @@ const router = createBrowserRouter([
       {
         path: "/about",
         element: <About/>
+      },
+      {
+        path: "/signin",
+        element: <Signin/>
+      },
+      {
+        path: "/signup",
+        element: <Signup/>
       }
      
     ],

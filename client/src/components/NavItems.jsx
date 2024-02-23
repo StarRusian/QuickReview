@@ -63,7 +63,7 @@ const NavItems = () => {
                             </div>
                             {/* sign in and log in */}
 
-                            <Link to="/sign-up" className='lab-btn me-3 d-none d-md-block'>Create Account</Link>
+                            <Link to="/signup" className='lab-btn me-3 d-none d-md-block'>Create Account</Link>
                             
 
                             

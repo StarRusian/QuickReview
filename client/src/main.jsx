@@ -18,9 +18,11 @@ import SingleProduct from "./shop/SingleProduct.jsx";
 import About from "./about/About.jsx";
 import Signup from "./pages/Signup.jsx";
 import Signin from "./pages/Signin.jsx";
+import Dashboard from "./pages/Dashboard.jsx";
 import { store, persistor } from "./redux/store.js";
 import { PersistGate } from "redux-persist/integration/react";
 import { createRoot } from "react-dom/client";
+import PrivateRoute from "./components/PrivateRoute.jsx";
 
 const Root = (
   <PersistGate persistor={persistor}>
@@ -34,6 +36,9 @@ const Root = (
             <Route path="/about" element={<About />} />
             <Route path="/signin" element={<Signin />} />
             <Route path="/signup" element={<Signup />} />
+            <Route element={<PrivateRoute />}>
+              <Route path="/dashboard" element={<Dashboard />} />
+            </Route>
           </Route>
         </Routes>
       </BrowserRouter>
@@ -42,3 +47,4 @@ const Root = (
 );
 
 createRoot(document.getElementById("root")).render(Root);
+

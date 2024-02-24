@@ -16,8 +16,9 @@ export default function Dashboard() {
     }
   }, [location.search]);
 
-  return <div>
-    <div className="">
+  return(
+   <div className="min-h-screen flex flex-col md:flex-row">
+    <div className="className='md:w-56'">
       {/* Sidebar */}
 
       <DashSidebar/>
@@ -25,5 +26,5 @@ export default function Dashboard() {
     </div>
     {/* profile */}
     {tab == 'profile' && <DashProfile/>}
-  </div>;
+  </div>)
 }

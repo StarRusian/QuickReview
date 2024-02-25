@@ -2,7 +2,8 @@ import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import logo from "../assets/images/logo/newlogo.png";
 import { Avatar, Button, Dropdown, DropdownItem } from "flowbite-react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { signoutSuccess } from "../redux/user/userSlice";
 
 const NavItems = () => {
   const [menuToggle, setMenuToggle] = useState(false);
@@ -19,6 +20,23 @@ const NavItems = () => {
   });
 
   const { currentUser } = useSelector((state) => state.user);
+  const dispatch = useDispatch();
+
+  const handleSignout = async () => {
+    try {
+      const res = await fetch("/api/user/signout", {
+        method: "POST",
+      });
+      const data = await res.json();
+      if (!res.ok) {
+        console.log(data.message);
+      } else {
+        dispatch(signoutSuccess());
+      }
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
 
   return (
     <header
@@ -73,34 +91,37 @@ const NavItems = () => {
               {/* <Link to="/signup" className="lab-btn me-3 d-none d-md-block">
                 Create Account
               </Link> */}
-                {currentUser ?(
-                   <Dropdown 
-                   arrowIcon={false}
-                   inline
-                   label={
+              {currentUser ? (
+                <Dropdown
+                  arrowIcon={false}
+                  inline
+                  label={
                     <Avatar
-                    alt="user"
-                    img={currentUser.profilePicture}
-                    rounded/>
-                    
-                   }>
-                    <Dropdown.Header>
-                        <span className="block text-sm">@{currentUser.username} </span>
-                        <span className="block text-sm font-medium truncate">{currentUser.email} </span>
-                    </Dropdown.Header>
-                    <Link to={'/dashboard?tab=profile'}>
-                        <DropdownItem>Profile</DropdownItem>
-                    </Link>
-                    <Dropdown.Divider/>
-                    <Dropdown.Item>Sign Out</Dropdown.Item>
-                   </Dropdown> 
-                ):(
-               
+                      alt="user"
+                      img={currentUser.profilePicture}
+                      rounded
+                    />
+                  }
+                >
+                  <Dropdown.Header>
+                    <span className="block text-sm">
+                      @{currentUser.username}{" "}
+                    </span>
+                    <span className="block text-sm font-medium truncate">
+                      {currentUser.email}{" "}
+                    </span>
+                  </Dropdown.Header>
+                  <Link to={"/dashboard?tab=profile"}>
+                    <DropdownItem>Profile</DropdownItem>
+                  </Link>
+                  <Dropdown.Divider />
+                  <Dropdown.Item onClick={handleSignout}>Sign Out</Dropdown.Item>
+                </Dropdown>
+              ) : (
                 <Link to="/signin">
                   <Button gradientDuoTone="purpleToBlue">Sign In</Button>
                 </Link>
-                )
-            }
+              )}
 
               {/* menu toggler */}
               <div

@@ -1,3 +1,35 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Add this to your existing CSS or create a new stylesheet */
+
+.shop-product-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .shop-product-wrap .product-item,
+  .shop-product-wrap .product-list-item {
+    margin-bottom: 20px; /* Adjust as needed */
+  }
+  
+  .shop-product-wrap .product-item,
+  .shop-product-wrap .product-list-item {
+    width: 100%; /* By default, each item takes full width in list view */
+  }
+  
+  .shop-product-wrap .product-item {
+    /* Styles for grid view */
+    max-width: 300px; /* Adjust as needed */
+  }
+  
+  .shop-product-wrap .product-list-item {
+    /* Styles for list view */
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Add any additional styling based on your design */
+  

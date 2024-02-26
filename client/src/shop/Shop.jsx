@@ -1,7 +1,5 @@
 import React, { useState } from "react";
 import PageHeader from "../components/PageHeader";
-
-const showResult = "Showing 01-12 of 139 Results";
 import Data from "../products.json";
 import ProductCard from "./ProductCard";
 import Pagination from "./Pagination";
@@ -9,12 +7,10 @@ import Search from "./Search";
 
 const Shop = () => {
   const [GridList, setGridList] = useState(true);
-  const [products, setproducts] = useState(Data);
- 
-
+  const [products] = useState(Data);
   const [currentPage, setCurrentPage] = useState(1);
   const productsPerPage = 12;
-  
+
   const indexOfLastProduct = currentPage * productsPerPage;
   const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
   const currentProducts = products.slice(
@@ -25,6 +21,7 @@ const Shop = () => {
   const paginate = (pageNumber) => {
     setCurrentPage(pageNumber);
   };
+
   return (
     <div>
       <PageHeader title="Our Products Page" curPage="Products" />
@@ -35,7 +32,7 @@ const Shop = () => {
             <div className="col-lg-8 col-12">
               <article>
                 <div className="shop-title d-flex flex-warp justify-content-between">
-                  <p>{showResult}</p>
+                  <p>{`Showing ${indexOfFirstProduct + 1}-${indexOfLastProduct} of ${products.length} Results`}</p>
                   <div
                     className={`product-view-mode ${
                       GridList ? "gridActive" : "listActive"

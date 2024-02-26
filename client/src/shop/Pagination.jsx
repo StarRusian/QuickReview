@@ -1,22 +1,20 @@
 import React from "react";
 
-const Pagination = ({
-  productsPerPage,
-  totalProducts,
-  paginate,
-  activePage,
-}) => {
+const Pagination = ({ productsPerPage, totalProducts, paginate, activePage }) => {
   const pageNumbers = [];
   for (let i = 1; i <= Math.ceil(totalProducts / productsPerPage); i++) {
     pageNumbers.push(i);
   }
+
   return (
     <ul className="default-pagination lab-ui">
       <li>
         <a
           href="#"
-          onClick={() => {
-            if (activePage < pageNumbers.length) {
+          onClick={(e) => {
+            e.preventDefault();
+            console.log("Previous clicked");
+            if (activePage > 1) {
               paginate(activePage - 1);
             }
           }}
@@ -29,16 +27,23 @@ const Pagination = ({
           key={number}
           className={`page-item ${number === activePage ? "bg-warning" : ""}`}
         >
-          <button onClick={() => paginate(number)} className="bg-transparent">
-            {" "}
-            {number}{" "}
+          <button
+            onClick={() => {
+              console.log(`Page ${number} clicked`);
+              paginate(number);
+            }}
+            className="bg-transparent"
+          >
+            {number}
           </button>
         </li>
       ))}
       <li>
         <a
           href="#"
-          onClick={() => {
+          onClick={(e) => {
+            e.preventDefault();
+            console.log("Next clicked");
             if (activePage < pageNumbers.length) {
               paginate(activePage + 1);
             }
@@ -50,4 +55,5 @@ const Pagination = ({
     </ul>
   );
 };
+
 export default Pagination;

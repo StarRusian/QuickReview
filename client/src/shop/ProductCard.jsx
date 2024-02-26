@@ -10,66 +10,67 @@ const ProductCard = ({ GridList, products }) => {
       }`}
     >
       {products.map((product, i) => (
-          <div key={i} className="col-lg-4 col-md-6 col-12">
+        <div key={i} className={`col-lg-${GridList ? "4" : "12"} col-md-6 col-12`}>
+          {GridList ? (
+            // Grid View
             <div className="product-item">
               <div className="product-thumb">
                 <div className="pro-thumb">
                   <img src={product.img} alt="" />
                 </div>
               
-              <div className="product-action-link">
-                <Link to={`/shop/${product.id}`}>
-                  <i className="icofont-eye"></i>
-                </Link>
-                <a href="#">
-                  <i className="icofont-heart"></i>
-                </a>
-              </div> 
+                <div className="product-action-link">
+                  <Link to={`/shop/${product.id}`}>
+                    <i className="icofont-eye"></i>
+                  </Link>
+                  <a href="#">
+                    <i className="icofont-heart"></i>
+                  </a>
+                </div> 
               </div>
 
               <div className="product-content">
                 <h6>
-                  <Link to={product.id}> {product.name} </Link>
+                  <Link to={`/shop/${product.id}`}> {product.name} </Link>
                 </h6>
                 <p className="productRating">
                   <Ratting />
                 </p>
                 <h6>₹{product.price}</h6>
               </div>
-
             </div>
-
-            {/* ------------------------------------ */}
+          ) : (
+            // List View
             <div className="product-list-item">
               <div className="product-thumb">
                 <div className="pro-thumb">
                   <img src={product.img} alt="" />
                 </div>
               
-              <div className="product-action-link">
-                <Link to={`/shop/${product.id}`}>
-                  <i className="icofont-eye"></i>
-                </Link>
-                <a href="#">
-                  <i className="icofont-heart"></i>
-                </a>
-              </div> 
+                <div className="product-action-link">
+                  <Link to={`/shop/${product.id}`}>
+                    <i className="icofont-eye"></i>
+                  </Link>
+                  <a href="#">
+                    <i className="icofont-heart"></i>
+                  </a>
+                </div> 
               </div>
 
               <div className="product-content">
                 <h6>
-                  <Link to={product.id}> {product.name} </Link>
+                  <Link to={`/shop/${product.id}`}> {product.name} </Link>
                 </h6>
                 <p className="productRating">
                   <Ratting />
                 </p>
                 <h6>₹{product.price}</h6>
               </div>
-
             </div>
-          </div>
-        ))}
-      </div>
+          )}
+        </div>
+      ))}
+    </div>
   );
 };
 

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import CommentsSection from "../components/CommentsSection";
 
 const ProductDisplay = ({ item }) => {
   // console.log(item)
@@ -14,8 +15,8 @@ const ProductDisplay = ({ item }) => {
     summery,
   } = item;
 
-  const [prequantity, setQuantity] = useState(quantity);
-  const [coupon, setcoupon] = useState("");
+  // const [prequantity, setQuantity] = useState(quantity);
+  // const [coupon, setcoupon] = useState("");
   //   const [size, setSize] = useState("Select Size");
   //   const [color, setColor] = useState("Select Color");
 
@@ -55,7 +56,10 @@ const ProductDisplay = ({ item }) => {
         </button>
         
       </form>
+      
+        <CommentsSection/>
     </div>
+
   );
 };
 

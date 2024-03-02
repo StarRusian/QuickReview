@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import CommentsSection from "../components/CommentsSection";
+import CommentsSectionComponent from "../components/CommentsSectionComponent";
 
 const ProductDisplay = ({ item }) => {
   // console.log(item)
@@ -19,7 +19,7 @@ const ProductDisplay = ({ item }) => {
   // const [coupon, setcoupon] = useState("");
   //   const [size, setSize] = useState("Select Size");
   //   const [color, setColor] = useState("Select Color");
-
+  
   return (
     <div>
       <div>
@@ -57,7 +57,7 @@ const ProductDisplay = ({ item }) => {
         
       </form>
       
-        <CommentsSection/>
+        <CommentsSectionComponent postId={id} />
     </div>
 
   );

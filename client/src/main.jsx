@@ -23,11 +23,13 @@ import { store, persistor } from "./redux/store.js";
 import { PersistGate } from "redux-persist/integration/react";
 import { createRoot } from "react-dom/client";
 import PrivateRoute from "./components/PrivateRoute.jsx";
+import ScrollToTop from "./components/ScrollToTop.jsx";
 
 const Root = (
   <PersistGate persistor={persistor}>
     <Provider store={store}>
       <BrowserRouter>
+      <ScrollToTop />
         <Routes>
           <Route path="/" element={<App />}>
             <Route path="/" element={<Home />} />
